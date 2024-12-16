@@ -1,31 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Убираем прокрутку, если фон увеличивается */
+  font-family: 'SF UI Display', sans-serif; 
+  color: #fff;
+  height: 100vh; /* Задаем высоту на весь экран */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: gradientAnimation 15s ease infinite; /* Анимация градиента */
+  background: linear-gradient(45deg, #331a7a, #1e689f, #331a7a); /* Modified background color */
+  background-size: 400% 400%; /* Размер фона для плавного перехода */
+}
+
 .App {
   text-align: center;
+  padding: 50px;
+  position: relative;
+  z-index: 1; /* Поднимаем контент над фоном */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dialog {
+  background-color: rgba(255, 255, 255, 0.3); /* Darkened background */
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  animation: fadeIn 0.5s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 60px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
   color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
 }
 
-.heart {
-  color: #ff0000;
+.teams {
+  margin-top: 20px;
+  height: 300px; /* Set a fixed height for the teams container */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-.small {
-  font-size: 0.75rem;
+.teams::-webkit-scrollbar {
+  width: 10px;
+}
+
+.teams::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+.teams::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px; 
+}
+
+.team {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.team:hover {
+  transform: translateY(-5px);
+}
+
+.team h2 {
+  margin: 0;
+}
+
+.score {
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffffff; /* Золотой цвет для очков */
+}
+
+/* Анимация плавного перехода фона */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html, body {
+  height: 100%;
 }

@@ -1,27 +1,51 @@
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [teamCount, setTeamCount] = useState(5);
+  const [scores, setScores] = useState([]);
+  const [showScoreboard, setShowScoreboard] = useState(false);
+
+  const startGame = () => {
+    const count = Math.max(2, Math.min(10, Number(teamCount)));
+    setScores(Array(count).fill(0));
+    setShowScoreboard(true);
+  };
+
+  const addPoint = (index) => {
+    const newScores = [...scores];
+    newScores[index]++;
+    setScores(newScores);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      {!showScoreboard ? (
+        <div className="dialog">
+          <h2>Выберите количество команд</h2>
+          <input
+            type="number"
+            min="2"
+            max="10"
+            value={teamCount}
+            onChange={(e) => setTeamCount(e.target.value)}
+          />
+          <br />
+          <button onClick={startGame}>Начать игру</button>
+        </div>
+      ) : (
+        <div>
+          <h1>Счетчик очков команд</h1>
+          <div className="teams">
+            {scores.map((score, index) => (
+              <div className="team" key={index}>
+                <h2>Команда {index + 1}: <span className="score">{score}</span></h2>
+                <button onClick={() => addPoint(index)}>Добавить очко Команда {index + 1}</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
