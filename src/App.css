@@ -21,9 +21,9 @@ body {
 }
 
 .dialog {
-  background-color: rgba(255, 255, 255, 0.3); /* Darkened background */
+  background-color: rgba(44, 41, 41, 0.1); /* Darkened background */
   padding: 30px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(204, 204, 204, 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: inline-block;
@@ -41,7 +41,7 @@ body {
 
 input[type="number"] {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
   border-radius: 5px;
   width: 60px;
   font-size: 16px;
@@ -67,8 +67,10 @@ button:hover {
 
 .teams {
   margin-top: 20px;
-  height: 300px; /* Set a fixed height for the teams container */
   overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .teams::-webkit-scrollbar {
@@ -87,9 +89,9 @@ button:hover {
 .team {
   margin: 20px;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(54, 49, 49, 0.1);
   transition: transform 0.2s ease;
 }
 
