@@ -1,0 +1,5 @@
+{
+    "remote.localPortHost": "localhost",
+    "remote.autoForwardPorts": false,
+    "remote.restoreForwardedPorts": false
+}
